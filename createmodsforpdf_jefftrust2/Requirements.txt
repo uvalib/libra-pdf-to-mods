@@ -1,0 +1,9 @@
+program name		needed for
+-------------------------------------------------------------------------------------------------------------
+aspell			evaluating number of errors in abstract -- if too many discard it.
+
+ldapsearch		lookup advisor name to fill in other info about advisor
+
+perl 			processing advisors and abstract -- at least version 5.16
+
+pdftotext		newer version from http://poppler.freedesktop.org   0.33.0

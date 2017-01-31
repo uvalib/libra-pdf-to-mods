@@ -1,0 +1,15 @@
+#!/bin/bash
+
+bindir=$( (cd -P $(dirname $0) && pwd) )
+dir=$( (cd -P $(dirname $0)/.. && pwd) )
+solrURL=http://libsvr40.lib.virginia.edu:8983/solr/bib
+
+barcode=$1
+abstract=$2
+advisorxmlfile=$3
+language=$4
+note="Digitization of this thesis was made possible by a generous grant from the Jefferson Trust, 2015."
+
+$bindir/getfromsolr "$solrURL" barcode_facet:"$barcode" | $bindir/indextest jeffersontrust.properties | tee $bindir/indextest.out.txt | 
+    sed -e 's/u[0-9]* : //' -e 's/ = /@/' | $bindir/getmodsfrommarc "$barcode" "$abstract" "$advisorxmlfile" "$language" "$note"  2> /dev/null 
+
