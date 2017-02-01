@@ -10,6 +10,9 @@ mkdir -p $tmpdir
 advisorfile=$tmpdir/${txtbase}_advisors.txt
 advisorxml=$tmpdir/${txtbase}_advisors.xml
 
+#PERL=/opt/rh/perl516/root/usr/bin/perl
+PERL=perl
+
 create_mods_advisor () {
     echo '  <name type="personal">'
     if [[ "$middlename" != "" ]]
@@ -45,12 +48,12 @@ create_empty_advisor () {
 
 cat $txtfile | sed -e 's/]/J/g' | 
     sed -e '/^[ \t]*$/d' -e 's/[-] *$//' -e '/^.\{1,30\}$/a \\n' -e 's/\f/\n\f\n/' | 
-    /opt/rh/perl516/root/usr/bin/perl -f sentence.pl | 
-    /opt/rh/perl516/root/usr/bin/perl -f getadvisor.perl | 
+    $PERL -f sentence.pl | 
+    $PERL -f getadvisor.perl | 
     egrep '^(Advis|Commi)' | 
     sort | 
     sed -e 's/[^:]*: //' |
-    /opt/rh/perl516/root/usr/bin/perl -f distdiff.perl > $advisorfile
+    $PERL -f distdiff.perl > $advisorfile
 
 if [[ ! -s $advisorfile ]] ; then
     create_empty_advisor > $advisorxml
