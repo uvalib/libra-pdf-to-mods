@@ -1,0 +1,7 @@
+# ldapsearch and perl already installed
+
+# install aspell
+brew install aspell
+
+# install pdftotext
+brew install Caskroom/cask/pdftotext
