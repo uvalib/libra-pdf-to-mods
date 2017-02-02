@@ -42,7 +42,7 @@ fi
 
 
 pdffile=$1
-ispdf=`file -L $pdffile | egrep "PDF document" | wc -l`
+ispdf=`file -L $pdffile | egrep "PDF document" | wc -l | awk '{print $1}'`
 if [ "$ispdf" == "0" ]
 then
     echo "Error: content file must really be in PDF format" 1>&2

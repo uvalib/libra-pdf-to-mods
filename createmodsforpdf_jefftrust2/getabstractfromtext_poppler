@@ -48,9 +48,9 @@ cat $txtfile | perl -f $bindir/splitter.perl | sed -e 's/#indent#/\n\n/g' | awk 
 
 if [[ ! -z $tmpabstractfile ]]
 then
-    dotlines=`cat $tmpabstractfile | egrep -l "[.][ ]?[.][ ]?[.][ ]?[.][ ]?[.]" | wc -l`
-    nonwords=`cat $tmpabstractfile | aspell --dict-dir $bindir/aspell6-en-7.1-0  -a | grep '&' | sed -e 's/^& \([^ ]*\) [0-9].*/\1/' | egrep -v '^[[:upper:]]' | sort | uniq | wc -l`
-    length=`cat $tmpabstractfile | wc -c`
+    dotlines=`cat $tmpabstractfile | egrep -l "[.][ ]?[.][ ]?[.][ ]?[.][ ]?[.]" | wc -l | awk '{print $1}'`
+    nonwords=`cat $tmpabstractfile | aspell --dict-dir $bindir/aspell6-en-7.1-0  -a | grep '&' | sed -e 's/^& \([^ ]*\) [0-9].*/\1/' | egrep -v '^[[:upper:]]' | sort | uniq | wc -l | awk '{print $1}'`
+    length=`cat $tmpabstractfile | wc -c | awk '{print $1}'`
     if [[ "$dotlines" == "0" && "$nonwords" -lt "20" && $length -gt 100 ]]
     then
         if [[ -e $tmpabstractfile.deleted ]]
