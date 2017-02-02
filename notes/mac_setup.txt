@@ -3,5 +3,10 @@
 # install aspell
 brew install aspell
 
-# install pdftotext
-brew install Caskroom/cask/pdftotext
+# install poppler tools
+brew install poppler
+
+# install required Perl module
+sudo cpan Lingua::EN::Sentence
+
+
