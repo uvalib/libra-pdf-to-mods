@@ -43,6 +43,10 @@ rm -fr $OUTPUT_RESULTS/* > /dev/null 2>&1
 TMPFILE=/tmp/assets.$$
 rm -fr $TMPFILE > /dev/null 2>&1
 
+# define the logfile name and clean
+LOGFILE=logfile.log
+rm -fr $LOGFILE > /dev/null 2>&1
+
 # the actual conversion task
 CONVERSION=createmodsforpdf_jefftrust2
 
@@ -69,10 +73,12 @@ for f in $(<$TMPFILE); do
    rd=$OUTPUT_RESULTS/$dd
    mkdir -p $rd > /dev/null 2>&1
 
+   echo "" >> $LOGFILE
+   echo "$f" >> $LOGFILE
    echo -n "."
 
    # do the conversion and abort if we error 
-   ./$CONVERSION -v $f - > $rd/$bn.out 2>/dev/null
+   ./$CONVERSION -v $f - > $rd/$bn.xml 2>>$LOGFILE
    exit_on_error $?
 
    # create a sym link of the input asset in the results directory
@@ -87,6 +93,7 @@ rm -fr $TMPFILE >/dev/null 2>&1
 # give the good news
 echo ""
 echo "Results available in $OUTPUT_RESULTS"
+echo "Logfile available $LOGFILE"
 
 # all over
 exit 0
