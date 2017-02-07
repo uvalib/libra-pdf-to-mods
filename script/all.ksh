@@ -81,9 +81,9 @@ for f in $(<$TMPFILE); do
    ./$CONVERSION -v $f - > $rd/$bn.xml 2>>$LOGFILE
    exit_on_error $?
 
-   # create a sym link of the input asset in the results directory
+   # copy the input asset to the results directory
    FULLNAME=$(realpath $f)
-   ln -s $FULLNAME $rd
+   cp $FULLNAME $rd
    exit_on_error $?
 done
 
