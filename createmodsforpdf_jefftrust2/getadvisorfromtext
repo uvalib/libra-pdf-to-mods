@@ -2,10 +2,13 @@
 
 txtfile=$1
 
+dir=$( (cd -P $(dirname $0)/.. && pwd) )
+tmpdir=$( (cd -P $dir/tmp && pwd) )
+
 txtbase=`basename $txtfile .txt`
-txtdir=`dirname $txtfile`
-tmpdir=$txtdir/tmp
-mkdir -p $tmpdir
+#txtdir=`dirname $txtfile`
+#tmpdir=$txtdir/tmp
+#mkdir -p $tmpdir
 
 advisorfile=$tmpdir/${txtbase}_advisors.txt
 advisorxml=$tmpdir/${txtbase}_advisors.xml

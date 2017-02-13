@@ -50,15 +50,15 @@ pdffile=$1
 pdfbase=`basename $pdffile`
 pdfbase2=`basename $pdffile .pdf`
 pdfdir=`dirname $pdffile`
-tmppdfdir=$pdfdir/tmp
-if [ -w $pdfdir ] 
-then
-    tmppdfdir=$pdfdir/tmp
-    mkdir -p $tmppdfdir
-else
-    tmppdfdir=../tmp
-fi
-tmptxtfile=$tmppdfdir/${pdfbase%.pdf}_poppler.txt
+#=$pdfdir/tmp
+#if [ -w $pdfdir ]
+#then
+#    tmppdfdir=$pdfdir/tmp
+#    mkdir -p $tmppdfdir
+#else
+#    tmppdfdir=../tmp
+#fi
+tmptxtfile=$tmpdir/${pdfbase%.pdf}_poppler.txt
 
 rm -f $tmptxtfile
 
