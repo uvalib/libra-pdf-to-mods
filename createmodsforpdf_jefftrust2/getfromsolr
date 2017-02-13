@@ -1,7 +1,6 @@
-#! /bin/bash
-# getfromsolr.sh
+#!/bin/bash
+
 # extracts complete MARC records from Solr index documents.
-# $Id: getfromsolr.sh 
 
 E_BADARGS=65
 
