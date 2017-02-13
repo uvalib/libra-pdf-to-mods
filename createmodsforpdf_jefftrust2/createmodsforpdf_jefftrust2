@@ -19,8 +19,8 @@ function Verbose ()
     fi
 }
 
-PYTHONPATH=$bindir/pdfminer-20110515/build/lib/
-export PYTHONPATH
+#PYTHONPATH=$bindir/pdfminer-20110515/build/lib/
+#export PYTHONPATH
 verbose=0
 resolution=300
 while getopts :vr: opt
