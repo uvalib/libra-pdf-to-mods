@@ -58,7 +58,7 @@ then
         #    rm $tmpabstractfile.deleted
         #fi
         cat $tmpabstractfile
-    else
+    #else
         #mv $tmpabstractfile $tmpabstractfile.deleted
     fi
 fi
