@@ -131,8 +131,9 @@ do
     elif [[ "$field" = "department" ]] ; then 
         department="$value"  
     elif [[ "$field" = "date" ]] ; then 
-        degree_date=`echo $value | sed -e 's/$/-01-01/'`
-    elif [[ "$field" = "degree_discipline" ]] ; then 
+#        degree_date=`echo $value | sed -e 's/$/-01-01/'`
+        degree_date="$value"
+    elif [[ "$field" = "degree_discipline" ]] ; then
         degree_discipline="$value"  
     elif [[ "$field" = "degree_name1" ]] ; then 
         degree_name1="$value"  
