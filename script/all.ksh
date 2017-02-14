@@ -37,7 +37,7 @@ echo "Processing input from $INPUT_ASSETS"
 echo "Output to $OUTPUT_RESULTS"
 
 # clean the results directory
-rm -fr $OUTPUT_RESULTS/* > /dev/null 2>&1
+#rm -fr $OUTPUT_RESULTS/* > /dev/null 2>&1
 
 # define the temp file and clean
 TMPFILE=/tmp/assets.$$
